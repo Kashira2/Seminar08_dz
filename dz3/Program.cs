@@ -23,7 +23,7 @@ void PrintArray(int[,] table)
     }
 }
 
-int[,] MatrixProduct(int[,] array1, int[,] array2, int m1, int n2)
+int[,] MatrixProduct(int[,] array1, int[,] array2, int m1, int n1, int m2, int n2)
 {
     int[,] resultArray = new int[m1, n2];
     int sumMatrix = 0;
@@ -32,28 +32,28 @@ int[,] MatrixProduct(int[,] array1, int[,] array2, int m1, int n2)
         for (int j = 0; j < n2; j++)
         {
             sumMatrix = 0;
-            for (int g = 0; g < m1; g++)
+            for (int k = 0; k < m2; k++)
             {
-                sumMatrix = array1[j, g] * array2[g, i] + sumMatrix;
+                sumMatrix = array1[i, k] * array2[k, j] + sumMatrix;
             }
-            resultArray[j, i] = sumMatrix;
+            resultArray[i, j] = sumMatrix;
         }
 
     }
     return resultArray;
 }
 
-//Console.WriteLine("Введите колличество строк первой матрицы: ");
-int m1 = 2; //int.Parse(Console.ReadLine());
-//Console.WriteLine("Введите колличество столбцов первой матрицы: ");
-int n1 = 2; //int.Parse(Console.ReadLine());
-//Console.WriteLine("Введите колличество строк второй матрицы: ");
-int m2 = 2; //int.Parse(Console.ReadLine());
-//Console.WriteLine("Введите колличество столбцов второй матрицы: ");
-int n2 = 2; //int.Parse(Console.ReadLine());
+Console.WriteLine("Введите колличество строк первой матрицы: ");
+int m1 = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите колличество столбцов первой матрицы: ");
+int n1 = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите колличество строк второй матрицы: ");
+int m2 = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите колличество столбцов второй матрицы: ");
+int n2 = int.Parse(Console.ReadLine());
 
 int[,] mas1 = FillArray(m1, n1);
-int[,] mas2 = FillArray(m1, n1);
+int[,] mas2 = FillArray(m2, n2);
 
 Console.WriteLine();
 PrintArray(mas1);
@@ -61,7 +61,6 @@ Console.WriteLine();
 PrintArray(mas2);
 Console.WriteLine();
 
-PrintArray(MatrixProduct(mas1, mas2, m1, n2));
 
-//if (n1 == m2) MatrixProduct(mas1, mas2, m1, n2);
-
+if (n1 == m2) PrintArray(MatrixProduct(mas1, mas2, m1, n1, m2, n2));
+else Console.WriteLine("Число столбцов первой матрицы должно быть равно числу строк второй матрицы, иначе матрицы умножить не получится");

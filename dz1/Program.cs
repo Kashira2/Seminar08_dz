@@ -23,7 +23,7 @@ void PrintArray(int[,] table)
     }
 }
 
-int[,] ChangeArray(int[,] array)
+int[,] ChangeArray(int[,] array)                            // Строки по убыванию.
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {

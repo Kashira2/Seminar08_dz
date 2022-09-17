@@ -3,45 +3,45 @@
     int[,] array = new int[m, n];
     int x = 0;
     int time = m * n / 4;
-        for (int k = 0; k < time; k++)
+        for (int round = 0; round < time; round++)
         {
-            for (int i = 0; i <= 3; i++)
+            for (int side = 0; side <= 3; side++)
             {
-                if (i < 2)
+                if (side < 2)
                 {
-                    if (i == 0)
+                    if (side == 0)
                     {
-                        for (int j = k; j < n - 1; j++)
+                        for (int i = round; i < n - 1; i++)
                         {
                             x++;
-                            array[k, j] = x;
+                            array[round, i] = x;
                         }
                     }
-                    if (i == 1)
+                    if (side == 1)
                     {
-                        for (int z = k; z < m - 1; z++)
+                        for (int j = round; j < m - 1; j++)
                         {
                             x++;
-                            array[z, n - 1] = x;
+                            array[j, n - 1] = x;
                         }
                     }
                 }
-                if (i >= 2)
+                if (side >= 2)
                 {
-                    if (i == 2)
+                    if (side == 2)
                     {
-                        for (int g = n - 1; g > k; g--)
+                        for (int k = n - 1; k > round; k--)
                         {
                             x++;
-                            array[m - 1, g] = x;
+                            array[m - 1, k] = x;
                         }
                     }
-                    if (i == 3)
+                    if (side == 3)
                     {
-                        for (int l = m - 1; l > k; l--)
+                        for (int l = m - 1; l > round; l--)
                         {
                             x++;
-                            array[l, k] = x;
+                            array[l, round] = x;
                         }
                     }
                 }

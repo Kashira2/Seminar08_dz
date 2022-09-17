@@ -59,7 +59,7 @@ Console.WriteLine();
 PrintArray(mas1);
 Console.WriteLine();
 PrintArray(mas2);
-Console.WriteLine();
+Console.WriteLine("Результат умножения матриц: ");
 
 
 if (n1 == m2) PrintArray(MatrixProduct(mas1, mas2, m1, n1, m2, n2));

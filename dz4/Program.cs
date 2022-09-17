@@ -39,18 +39,18 @@ void PrintArray(int[,,] table, int g, int m, int n)
 {
     for (int i = 0; i < g; i++)
     {
+        Console.WriteLine();
         Console.WriteLine($"Массив №{i + 1}");
         for (int j = 0; j < m; j++)
         {
             for (int k = 0; k < n; k++)
             {
-                Console.Write(table[i, j, k] + "\t");
+                Console.Write($"{table[i, j, k]}({i},{j},{k}) \t");
             }
             Console.WriteLine();
         }
     }
 }
-
 Console.WriteLine("Введите колличество таблиц трехмерного массива: ");
 int g = int.Parse(Console.ReadLine());
 Console.WriteLine("Введите колличество строк трехмерного массива: ");
